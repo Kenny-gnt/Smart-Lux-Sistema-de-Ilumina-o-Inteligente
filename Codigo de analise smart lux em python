@@ -1,0 +1,86 @@
+# Projeto : Smarth Lux
+# # Curso: Ciências da Computação - Global Solution
+
+
+import pandas as pd
+
+
+ARQUIVO = "coleta_de_dados.csv"
+
+
+def linha():
+    print("-" * 55)
+
+
+def titulo(texto):
+    print(f"\n{texto}")
+    linha()
+
+
+def analisar_dados(dados):
+    media_ldr = dados["LDR"].mean()
+    media_temp = dados["Temperatura (C)"].mean()
+    media_dist = dados["Distancia (cm)"].mean()
+    return media_ldr, media_temp, media_dist
+
+
+def estado_lampada(dados):
+    on_count = (dados["Lampada"] == "ON").sum()
+    off_count = (dados["Lampada"] == "OFF").sum()
+    total = len(dados)
+    percent_on = (on_count / total) * 100 if total > 0 else 0
+    return on_count, off_count, percent_on
+
+
+def consumo_energia(percent_on, potencia_w=15, horas_dia=8):
+    consumo_total = potencia_w * horas_dia / 1000
+    consumo_autom = consumo_total * (percent_on / 100)
+    economia = consumo_total - consumo_autom
+    percent_economia = 100 - percent_on
+    return consumo_total, consumo_autom, economia, percent_economia
+
+
+print("ANÁLISE DO SISTEMA SMART LUX")
+linha()
+
+
+try:
+    dados = pd.read_csv(ARQUIVO)
+except FileNotFoundError:
+    print(f"Arquivo '{ARQUIVO}' não encontrado!")
+    print("Verifique se o arquivo está na mesma pasta deste script.\n")
+    exit()
+ 
+titulo("AMOSTRA DAS PRIMEIRAS LEITURAS")
+print(dados.head().to_string(index=False))
+
+
+titulo("ESTATÍSTICAS GERAIS")
+media_ldr, media_temp, media_dist = analisar_dados(dados)
+print(f"Média LDR: {media_ldr:.2f}")
+print(f"Média Temperatura (°C): {media_temp:.2f}")
+print(f"Média Distância (cm): {media_dist:.2f}")
+
+
+titulo("ESTADO DA LÂMPADA")
+on_count, off_count, percent_on = estado_lampada(dados)
+print(f"Ligada (ON): {on_count} vezes")
+print(f"Desligada (OFF): {off_count} vezes")
+print(f"Tempo ligada: {percent_on:.1f}%")
+
+
+titulo("ESTIMATIVA DE CONSUMO ENERGÉTICO")
+consumo_total, consumo_autom, economia, percent_economia = consumo_energia(percent_on)
+print(f"Sem automação: {consumo_total:.3f} kWh/dia")
+print(f"Com automação: {consumo_autom:.3f} kWh/dia")
+print(f"Economia diária: {economia:.3f} kWh")
+print(f"Percentual de economia: {percent_economia:.1f}%")
+
+
+titulo("CONCLUSÃO FINAL")
+
+
+if percent_on <= 50:
+    print("O sistema Smart Lux demonstrou excelente eficiência, mantendo a lâmpada desligada na maior parte do tempo.")
+else:
+    print("O sistema manteve a lâmpada ligada por longos períodos — ajustes nos sensores podem melhorar a economia.")
