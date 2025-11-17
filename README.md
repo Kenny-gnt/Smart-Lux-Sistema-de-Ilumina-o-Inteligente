@@ -34,7 +34,7 @@ TECNOLOGIAS UTILIZADAS
 - Sensor ultrassônico HC-SR04
 
 - Linguagem C/C++ (Arduino IDE)
-- 
+
 - Python (pandas)
 ----------------------------------------------------------
 ORIENTAÇÃO DE EXECUÇÃO
