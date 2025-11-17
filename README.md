@@ -81,7 +81,9 @@ Após o upload, abra o Monitor Serial para acompanhar as leituras dos sensores.
 
  8. Analise os resultados e, se necessário, ajuste os sensores para otimizar o desempenho e a eficiência do sistema.
 
-
+----------------------------------------------------------
+Video: https://youtu.be/emYx8D1iaVE?si=jAcbTjeomhs2dWUO
+Tinkercad: https://youtu.be/93sgIzm75Ug
 
 
 
