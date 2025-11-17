@@ -2,7 +2,7 @@
 
 O Smart Lux é um sistema de iluminação automatizado desenvolvido para otimizar o bem-estar de aves em ambientes controlados, reduzindo o consumo de energia elétrica de maneira eficiente e inteligente. O projeto utiliza sensores de luminosidade, temperatura e distância para acionar a iluminação apenas quando as condições ideais são atendidas, garantindo conforto para os animais e promovendo o uso responsável de energia.
 ----------------------------------------------------------
-COMO FUNCIONA 
+# COMO FUNCIONA 
 
 O sistema é composto por:
 - Sensor LDR → Detecta o nível de luminosidade do ambiente;
@@ -22,8 +22,9 @@ A lâmpada é acionada somente quando:
 - E há presença detectada a até 150 cm de distância.
 
 Dessa forma, o Smart Lux mantém a iluminação ligada apenas quando realmente necessária, equilibrando bem-estar animal e eficiência energética.
+
 ----------------------------------------------------------
-TECNOLOGIAS UTILIZADAS
+# TECNOLOGIAS UTILIZADAS
 
 - Arduino UNO
 
@@ -37,7 +38,7 @@ TECNOLOGIAS UTILIZADAS
 
 - Python (pandas)
 ----------------------------------------------------------
-ORIENTAÇÃO DE EXECUÇÃO
+# ORIENTAÇÃO DE EXECUÇÃO
 
 1. Monte o circuito no Arduino UNO, conectando:
 
