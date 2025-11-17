@@ -83,7 +83,3 @@ Após o upload, abra o Monitor Serial para acompanhar as leituras dos sensores.
 
 ----------------------------------------------------------
 Video: https://youtu.be/emYx8D1iaVE?si=jAcbTjeomhs2dWUO
-Tinkercad: https://youtu.be/93sgIzm75Ug
-
-
-
